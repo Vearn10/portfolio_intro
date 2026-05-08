@@ -19,142 +19,142 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
     <style>
-    html {
-        scroll-behavior: smooth;
-    }
-
-    body {
-        background: #020617;
-        color: white;
-        overflow-x: hidden;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .glass {
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(14px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .gradient-text {
-        background: linear-gradient(to right, #22d3ee, #818cf8);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    .glow {
-        box-shadow: 0 0 40px rgba(34, 211, 238, 0.35);
-    }
-
-    .project-card:hover {
-        transform: translateY(-10px);
-    }
-
-    .swiper {
-        width: 100%;
-        height: 500px;
-        border-radius: 30px;
-        overflow: hidden;
-    }
-
-    .swiper-slide img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .bg-blur {
-        position: absolute;
-        width: 500px;
-        height: 500px;
-        background: #22d3ee;
-        filter: blur(150px);
-        opacity: 0.12;
-        border-radius: 50%;
-        z-index: 0;
-    }
-
-    /* ================= RESPONSIVE FIXES ================= */
-
-    @media (max-width: 1024px) {
-        .swiper {
-            height: 400px;
+        html {
+            scroll-behavior: smooth;
         }
-    }
-
-    @media (max-width: 768px) {
-        .swiper {
-            height: 320px;
-            border-radius: 20px;
-        }
-
-        .project-card:hover {
-            transform: none;
-        }
-
-        h1 {
-            font-size: 2.5rem !important;
-            line-height: 1.2;
-        }
-
-        h2 {
-            font-size: 2rem !important;
-        }
-
-        .bg-blur {
-            width: 300px;
-            height: 300px;
-        }
-    }
-
-    @media (max-width: 640px) {
 
         body {
+            background: #020617;
+            color: white;
             overflow-x: hidden;
-        }
-
-        section {
-            padding-left: 16px !important;
-            padding-right: 16px !important;
-        }
-
-        .swiper {
-            height: 260px;
-        }
-
-        h1 {
-            font-size: 2rem !important;
-        }
-
-        h2 {
-            font-size: 1.6rem !important;
-        }
-
-        p {
-            font-size: 0.95rem;
-        }
-
-        .grid {
-            grid-template-columns: 1fr !important;
-        }
-
-        .flex {
-            flex-wrap: wrap;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         .glass {
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        .text-5xl {
-            font-size: 2.2rem !important;
+        .gradient-text {
+            background: linear-gradient(to right, #22d3ee, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .text-7xl {
-            font-size: 2.6rem !important;
+        .glow {
+            box-shadow: 0 0 40px rgba(34, 211, 238, 0.35);
         }
-    }
-</style>
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .swiper {
+            width: 100%;
+            height: 500px;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bg-blur {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: #22d3ee;
+            filter: blur(150px);
+            opacity: 0.12;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        /* ================= RESPONSIVE FIXES ================= */
+
+        @media (max-width: 1024px) {
+            .swiper {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .swiper {
+                height: 320px;
+                border-radius: 20px;
+            }
+
+            .project-card:hover {
+                transform: none;
+            }
+
+            h1 {
+                font-size: 2.5rem !important;
+                line-height: 1.2;
+            }
+
+            h2 {
+                font-size: 2rem !important;
+            }
+
+            .bg-blur {
+                width: 300px;
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 640px) {
+
+            body {
+                overflow-x: hidden;
+            }
+
+            section {
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+            }
+
+            .swiper {
+                height: 260px;
+            }
+
+            h1 {
+                font-size: 2rem !important;
+            }
+
+            h2 {
+                font-size: 1.6rem !important;
+            }
+
+            p {
+                font-size: 0.95rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .flex {
+                flex-wrap: wrap;
+            }
+
+            .glass {
+                border-radius: 20px;
+            }
+
+            .text-5xl {
+                font-size: 2.2rem !important;
+            }
+
+            .text-7xl {
+                font-size: 2.6rem !important;
+            }
+        }
+    </style>
 
 </head>
 
@@ -198,33 +198,36 @@
 
     </nav>
 
+
+
     <!-- ================= HERO ================= -->
 
-    <section id="home" class="min-h-screen flex items-center px-6 relative overflow-hidden">
+    <section id="home" class="min-h-screen flex items-center px-4 sm:px-6 relative overflow-hidden pt-24">
 
         <div class="bg-blur top-0 left-0"></div>
         <div class="bg-blur bottom-0 right-0 bg-purple-500"></div>
 
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
+        <div
+            class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10 w-full">
 
             <!-- LEFT -->
             <div data-aos="fade-right">
 
-                <p class="uppercase tracking-[6px] text-cyan-400 mb-4">
+                <p class="uppercase tracking-[4px] sm:tracking-[6px] text-cyan-400 mb-3 sm:mb-4 text-xs sm:text-sm">
                     Welcome Students
                 </p>
 
-                <h1 class="text-5xl md:text-7xl font-black leading-tight mb-6">
+                <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-6">
 
                     Hi, I'm <br>
 
-                    <span class="gradient-text">
+                    <span class="gradient-text break-words">
                         Ernest Julio C. De Jesus
                     </span>
 
                 </h1>
 
-                <p class="text-slate-300 text-lg leading-relaxed mb-8">
+                <p class="text-slate-300 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8">
 
                     IT Graduate from PUP Calauan specializing in
                     Web Development, System Development,
@@ -235,17 +238,17 @@
 
                 </p>
 
-                <div class="flex flex-wrap gap-4">
+                <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
 
                     <a href="#projects"
-                        class="px-8 py-4 rounded-2xl bg-cyan-400 text-black font-bold hover:scale-105 transition duration-300 glow">
+                        class="px-6 sm:px-8 py-3 sm:py-4 rounded-2xl bg-cyan-400 text-black font-bold text-center hover:scale-105 transition duration-300 glow">
 
                         Explore Projects
 
                     </a>
 
                     <a href="#about"
-                        class="px-8 py-4 rounded-2xl border border-slate-700 hover:bg-white/10 transition duration-300">
+                        class="px-6 sm:px-8 py-3 sm:py-4 rounded-2xl border border-slate-700 text-center hover:bg-white/10 transition duration-300">
 
                         About Me
 
@@ -256,26 +259,26 @@
             </div>
 
             <!-- RIGHT HERO CAROUSEL -->
-            <div data-aos="fade-left">
+            <div data-aos="fade-left" class="w-full">
 
-                <div class="swiper glass glow">
+                <div class="swiper glass glow w-full">
 
                     <div class="swiper-wrapper">
 
                         <!-- SLIDE 1 -->
                         <div class="swiper-slide relative">
 
-                            <img src="img/RDP102946.JPG">
+                            <img src="img/RDP102946.JPG" class="w-full h-full object-cover">
 
-                            <div class="absolute inset-0 bg-black/50 flex items-end p-8">
+                            <div class="absolute inset-0 bg-black/50 flex items-end p-4 sm:p-6 lg:p-8">
 
                                 <div>
 
-                                    <h2 class="text-3xl font-bold mb-2">
+                                    <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold mb-2">
                                         Developer & Instructor
                                     </h2>
 
-                                    <p class="text-slate-300">
+                                    <p class="text-slate-300 text-sm sm:text-base">
                                         Building modern systems and inspiring students through technology.
                                     </p>
 
@@ -288,17 +291,17 @@
                         <!-- SLIDE 2 -->
                         <div class="swiper-slide relative">
 
-                            <img src="img/canossa.jpg">
+                            <img src="img/canossa.jpg" class="w-full h-full object-cover">
 
-                            <div class="absolute inset-0 bg-black/50 flex items-end p-8">
+                            <div class="absolute inset-0 bg-black/50 flex items-end p-4 sm:p-6 lg:p-8">
 
                                 <div>
 
-                                    <h2 class="text-3xl font-bold mb-2">
+                                    <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold mb-2">
                                         System Developer
                                     </h2>
 
-                                    <p class="text-slate-300">
+                                    <p class="text-slate-300 text-sm sm:text-base">
                                         Creating innovative and responsive web applications.
                                     </p>
 
@@ -311,17 +314,17 @@
                         <!-- SLIDE 3 -->
                         <div class="swiper-slide relative">
 
-                            <img src="img/grad.jpg">
+                            <img src="img/grad.jpg" class="w-full h-full object-cover">
 
-                            <div class="absolute inset-0 bg-black/50 flex items-end p-8">
+                            <div class="absolute inset-0 bg-black/50 flex items-end p-4 sm:p-6 lg:p-8">
 
                                 <div>
 
-                                    <h2 class="text-3xl font-bold mb-2">
+                                    <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold mb-2">
                                         Future Innovator / My Group
                                     </h2>
 
-                                    <p class="text-slate-300">
+                                    <p class="text-slate-300 text-sm sm:text-base">
                                         Empowering students through creativity and technology.
                                     </p>
 
@@ -340,7 +343,6 @@
         </div>
 
     </section>
-
     <!-- ================= ABOUT ================= -->
 
     <section id="about" class="py-28 px-6">
