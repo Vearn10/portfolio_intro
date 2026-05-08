@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ernest Julio C. De Jesus | Portfolio</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #020617;
+            color: white;
+            overflow-x: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #22d3ee, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glow {
+            box-shadow: 0 0 40px rgba(34, 211, 238, 0.35);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .swiper {
+            width: 100%;
+            height: 500px;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bg-blur {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: #22d3ee;
+            filter: blur(150px);
+            opacity: 0.12;
+            border-radius: 50%;
+            z-index: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="fixed top-0 left-0 w-full z-50 glass">
+
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+            <h1 class="text-2xl font-black gradient-text">
+                Ernest Portfolio
+            </h1>
+
+            <div class="hidden md:flex gap-8 text-sm">
+
+                <a href="#home" class="hover:text-cyan-400 transition">
+                    Home
+                </a>
+
+                <a href="#about" class="hover:text-cyan-400 transition">
+                    About
+                </a>
+
+                <a href="#skills" class="hover:text-cyan-400 transition">
+                    Skills
+                </a>
+
+                <a href="#projects" class="hover:text-cyan-400 transition">
+                    Projects
+                </a>
+
+                <a href="#contact" class="hover:text-cyan-400 transition">
+                    Contact
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- ================= HERO ================= -->
+
+    <section id="home" class="min-h-screen flex items-center px-6 relative overflow-hidden">
+
+        <div class="bg-blur top-0 left-0"></div>
+        <div class="bg-blur bottom-0 right-0 bg-purple-500"></div>
+
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
+
+            <!-- LEFT -->
+            <div data-aos="fade-right">
+
+                <p class="uppercase tracking-[6px] text-cyan-400 mb-4">
+                    Welcome Students
+                </p>
+
+                <h1 class="text-5xl md:text-7xl font-black leading-tight mb-6">
+
+                    Hi, I'm <br>
+
+                    <span class="gradient-text">
+                        Ernest Julio C. De Jesus
+                    </span>
+
+                </h1>
+
+                <p class="text-slate-300 text-lg leading-relaxed mb-8">
+
+                    IT Graduate from PUP Calauan specializing in
+                    Web Development, System Development,
+                    UI/UX Design, and Database Management.
+
+                    Passionate about building innovative systems,
+                    modern websites, and inspiring future developers.
+
+                </p>
+
+                <div class="flex flex-wrap gap-4">
+
+                    <a href="#projects"
+                        class="px-8 py-4 rounded-2xl bg-cyan-400 text-black font-bold hover:scale-105 transition duration-300 glow">
+
+                        Explore Projects
+
+                    </a>
+
+                    <a href="#about"
+                        class="px-8 py-4 rounded-2xl border border-slate-700 hover:bg-white/10 transition duration-300">
+
+                        About Me
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT HERO CAROUSEL -->
+            <div data-aos="fade-left">
+
+                <div class="swiper glass glow">
+
+                    <div class="swiper-wrapper">
+
+                        <!-- SLIDE 1 -->
+                        <div class="swiper-slide relative">
+
+                            <img src="img/RDP102946.JPG">
+
+                            <div class="absolute inset-0 bg-black/50 flex items-end p-8">
+
+                                <div>
+
+                                    <h2 class="text-3xl font-bold mb-2">
+                                        Developer & Instructor
+                                    </h2>
+
+                                    <p class="text-slate-300">
+                                        Building modern systems and inspiring students through technology.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- SLIDE 2 -->
+                        <div class="swiper-slide relative">
+
+                            <img src="img/canossa.jpg">
+
+                            <div class="absolute inset-0 bg-black/50 flex items-end p-8">
+
+                                <div>
+
+                                    <h2 class="text-3xl font-bold mb-2">
+                                        System Developer
+                                    </h2>
+
+                                    <p class="text-slate-300">
+                                        Creating innovative and responsive web applications.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- SLIDE 3 -->
+                        <div class="swiper-slide relative">
+
+                            <img src="img/grad.jpg">
+
+                            <div class="absolute inset-0 bg-black/50 flex items-end p-8">
+
+                                <div>
+
+                                    <h2 class="text-3xl font-bold mb-2">
+                                        Future Innovator / My Group
+                                    </h2>
+
+                                    <p class="text-slate-300">
+                                        Empowering students through creativity and technology.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+
+    <section id="about" class="py-28 px-6">
+        <div class="max-w-7xl mx-auto">
+
+            <!-- Header -->
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="text-5xl font-black mb-4">
+                    About Me
+                </h2>
+                <p class="text-slate-400 text-lg">
+                    Learn more about your teacher and developer
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10 mb-10">
+                <!-- LEFT: Background -->
+                <div class="glass rounded-3xl p-10" data-aos="zoom-in">
+                    <h3 class="text-3xl font-bold text-cyan-400 mb-6">
+                        My Background
+                    </h3>
+                    <p class="text-slate-300 leading-relaxed mb-5">
+                        I graduated from <strong>PUP Calauan</strong> in October 2025 with a strong foundation in
+                        Information Technology, programming, web development, and database systems.
+                    </p>
+                    <p class="text-slate-400 leading-relaxed">
+                        Throughout my journey, I developed systems, websites, and projects focused on improving
+                        workflows and user experience using modern technologies.
+                    </p>
+                </div>
+
+                <!-- RIGHT: Career Goal -->
+                <div class="glass rounded-3xl p-10" data-aos="zoom-in" data-aos-delay="200">
+                    <h3 class="text-3xl font-bold text-cyan-400 mb-6">
+                        Career Goal
+                    </h3>
+                    <p class="text-slate-300 leading-relaxed mb-5">
+                        My goal is to inspire students to become creative problem-solvers and future-ready
+                        professionals.
+                    </p>
+                    <p class="text-slate-400 leading-relaxed">
+                        I believe technology should empower people, encourage innovation, and create opportunities
+                        for learning and growth.
+                    </p>
+                </div>
+            </div>
+
+            <!-- NEW SECTION: Media & Hobbies -->
+            <div class="grid md:grid-cols-3 gap-10">
+
+                <!-- Carousel Container -->
+                <div class="glass rounded-3xl overflow-hidden min-h-[300px] border border-slate-700 relative"
+                    data-aos="fade-up">
+                    <!-- Unique class: hobbySwiper -->
+                    <div class="swiper hobbySwiper h-full w-full">
+                        <div class="swiper-wrapper">
+                            <!-- Slide 1 -->
+                            <div class="swiper-slide">
+                                <img src="img/coll1.jpg" alt="Gundam Collection" class="w-full h-full object-cover">
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="swiper-slide">
+                                <img src="img/pokemon_team.gif" alt="Pokemon Hobby" class="w-full h-full object-cover">
+                            </div>
+                            <!-- Slide 3 -->
+                            <div class="swiper-slide">
+                                <img src="YOUR_GAMING_GIF_URL" alt="Valorant/DOTA Gameplay"
+                                    class="w-full h-full object-cover">
+                            </div>
+                        </div>
+
+                        <!-- Unique Pagination Class -->
+                        <div class="swiper-pagination hobby-pagination"></div>
+
+                        <!-- Unique Navigation Classes -->
+                        <div class="swiper-button-next hobby-next text-cyan-400"></div>
+                        <div class="swiper-button-prev hobby-prev text-cyan-400"></div>
+                    </div>
+                </div>
+
+                <!-- Initialization Script -->
+                <script>
+                    // Targeted initialization to prevent interference with other sliders
+                    var hobbySwiper = new Swiper(".hobbySwiper", {
+                        loop: true,
+                        autoplay: {
+                            delay: 10500, // Slightly different delay for visual variety
+                            disableOnInteraction: false,
+                        },
+                        pagination: {
+                            el: ".hobby-pagination",
+                            clickable: true,
+                        },
+                        navigation: {
+                            nextEl: ".hobby-next",
+                            prevEl: ".hobby-prev",
+                        },
+                    });
+                </script>
+
+                <style>
+                    /* Scope styles to this specific swiper */
+                    .hobbySwiper {
+                        width: 100%;
+                        height: 300px;
+                    }
+
+                    .hobbySwiper .swiper-slide img {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+
+                    /* Custom dots for this carousel only */
+                    .hobby-pagination .swiper-pagination-bullet-active {
+                        background: #22d3ee !important;
+                        opacity: 1;
+                    }
+                </style>
+
+                <!-- Hobbies & Gaming Content -->
+                <div class="md:col-span-2 glass rounded-3xl p-10 flex flex-col justify-center" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <h3 class="text-3xl font-bold text-cyan-400 mb-6">
+                        Interests & Gaming
+                    </h3>
+                    <p class="text-slate-300 leading-relaxed mb-6">
+                        When I'm not coding or teaching, I'm likely building <strong>Gundam</strong> models or catching
+                        <strong>Pokémon</strong>.
+                        I'm also a competitive gamer at heart you'll often find me in a match of
+                        <strong>Valorant</strong>, <strong>Mobile Legends</strong>, or <strong>DOTA 2</strong>.
+                    </p>
+
+                    <!-- Gaming Tags -->
+                    <div class="flex flex-wrap gap-3">
+                        <span
+                            class="px-4 py-2 bg-slate-800/50 rounded-full border border-cyan-500/30 text-cyan-300 text-sm font-semibold">#Gundam</span>
+                        <span
+                            class="px-4 py-2 bg-slate-800/50 rounded-full border border-cyan-500/30 text-cyan-300 text-sm font-semibold">#Pokemon</span>
+                        <span
+                            class="px-4 py-2 bg-slate-800/50 rounded-full border border-cyan-500/30 text-cyan-300 text-sm font-semibold">#Valorant</span>
+                        <span
+                            class="px-4 py-2 bg-slate-800/50 rounded-full border border-cyan-500/30 text-cyan-300 text-sm font-semibold">#MLBB</span>
+                        <span
+                            class="px-4 py-2 bg-slate-800/50 rounded-full border border-cyan-500/30 text-cyan-300 text-sm font-semibold">#DOTA2</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+
+    <section id="skills" class="py-28 px-6 bg-slate-900/50">
+
+        <div class="max-w-7xl mx-auto">
+
+            <div class="text-center mb-20" data-aos="fade-up">
+
+                <h2 class="text-5xl font-black mb-4">
+                    Skills & Technologies
+                </h2>
+
+                <p class="text-slate-400 text-lg">
+                    Technologies and tools I use
+                </p>
+
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-8">
+
+                <div class="glass rounded-3xl p-8 text-center hover:-translate-y-3 transition duration-500">
+
+                    <i class="fa-solid fa-code text-5xl text-cyan-400 mb-5"></i>
+
+                    <h3 class="text-2xl font-bold mb-3">
+                        Frontend
+                    </h3>
+
+                    <p class="text-slate-400">
+                        HTML, CSS, JavaScript, Tailwind
+                    </p>
+
+                </div>
+
+                <div class="glass rounded-3xl p-8 text-center hover:-translate-y-3 transition duration-500">
+
+                    <i class="fa-solid fa-server text-5xl text-cyan-400 mb-5"></i>
+
+                    <h3 class="text-2xl font-bold mb-3">
+                        Backend
+                    </h3>
+
+                    <p class="text-slate-400">
+                        PHP Vanilla / Laravel & MySQL
+                    </p>
+
+                </div>
+
+                <div class="glass rounded-3xl p-8 text-center hover:-translate-y-3 transition duration-500">
+
+                    <i class="fa-solid fa-palette text-5xl text-cyan-400 mb-5"></i>
+
+                    <h3 class="text-2xl font-bold mb-3">
+                        UI/UX
+                    </h3>
+
+                    <p class="text-slate-400">
+                        Modern & Responsive Design
+                    </p>
+
+                </div>
+
+                <div class="glass rounded-3xl p-8 text-center hover:-translate-y-3 transition duration-500">
+
+                    <i class="fa-solid fa-database text-5xl text-cyan-400 mb-5"></i>
+
+                    <h3 class="text-2xl font-bold mb-3">
+                        Database
+                    </h3>
+
+                    <p class="text-slate-400">
+                        Database Management & Systems
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= PROJECTS ================= -->
+
+    <section id="projects" class="py-28 px-6">
+
+        <div class="max-w-7xl mx-auto">
+
+            <div class="text-center mb-20" data-aos="fade-up">
+
+                <h2 class="text-5xl font-black mb-4">
+                    Featured Projects
+                </h2>
+
+                <p class="text-slate-400 text-lg">
+                    Systems and websites I developed
+                </p>
+
+            </div>
+
+            <!-- ================= IMAGE PREVIEW MODAL ================= -->
+
+            <style>
+                /* MODAL BACKGROUND ANIMATION */
+                .modal-overlay {
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: all 0.35s ease;
+                    backdrop-filter: blur(0px);
+                }
+
+                .modal-overlay.active {
+                    opacity: 1;
+                    visibility: visible;
+                    backdrop-filter: blur(10px);
+                }
+
+                /* IMAGE ANIMATION */
+                .modal-image {
+                    transform: scale(0.6) rotate(-8deg);
+                    opacity: 0;
+                    transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+                }
+
+                .modal-overlay.active .modal-image {
+                    transform: scale(1) rotate(0deg);
+                    opacity: 1;
+                }
+
+                /* CLOSE BUTTON */
+                .close-btn {
+                    transform: translateY(-20px);
+                    opacity: 0;
+                    transition: all 0.3s ease;
+                }
+
+                .modal-overlay.active .close-btn {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+
+                /* IMAGE HOVER EFFECT */
+                .preview-image {
+                    transition: all 0.4s ease;
+                }
+
+                .preview-image:hover {
+                    transform: scale(1.03);
+                    filter: brightness(1.05);
+                }
+            </style>
+
+            <!-- ================= PROJECT GRID ================= -->
+
+            <div class="grid lg:grid-cols-3 gap-10">
+
+                <!-- PROJECT -->
+                <div class="glass rounded-3xl overflow-hidden transition duration-500 project-card">
+
+                    <img src="img/APP-CSE.jpg" class="w-full h-60 object-cover cursor-pointer preview-image"
+                        alt="APP-CSE">
+
+                    <div class="p-8">
+
+                        <h3 class="text-3xl font-bold text-cyan-400 mb-4">
+                            APP-CSE System
+                        </h3>
+
+                        <p class="text-slate-300 leading-relaxed mb-5">
+
+                            A web-based system developed during my OJT experience
+                            focused on workflow management and data organization.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- PROJECT -->
+                <div class="glass rounded-3xl overflow-hidden transition duration-500 project-card">
+
+                    <img src="img/see_and_explore.png" class="w-full h-60 object-cover cursor-pointer preview-image"
+                        alt="See and Explore">
+
+                    <div class="p-8">
+
+                        <h3 class="text-3xl font-bold text-cyan-400 mb-4">
+                            See and Explore
+                        </h3>
+
+                        <p class="text-slate-300 leading-relaxed mb-5">
+
+                            A freelance travel agency website with modern UI/UX,
+                            responsive design, and booking functionality.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- PROJECT -->
+                <div class="glass rounded-3xl overflow-hidden transition duration-500 project-card">
+
+                    <img src="img/CCAAP.png" class="w-full h-60 object-cover cursor-pointer preview-image" alt="CCAAP">
+
+                    <div class="p-8">
+
+                        <h3 class="text-3xl font-bold text-cyan-400 mb-4">
+                            CCAAP
+                        </h3>
+
+                        <p class="text-slate-300 leading-relaxed mb-5">
+
+                            Canossa Calamba Academy Alumni Portal —
+                            developed using PHP Vanilla, HTML, JavaScript, and MySQL.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ================= MODAL ================= -->
+
+            <div id="imageModal"
+                class="modal-overlay fixed inset-0 bg-black/90 z-[9999] flex items-center justify-center p-5">
+
+                <!-- CLOSE -->
+                <button id="closeModal"
+                    class="close-btn absolute top-6 right-6 text-white text-5xl hover:text-cyan-400 transition">
+
+                    &times;
+
+                </button>
+
+                <!-- IMAGE -->
+                <img id="modalImage" class="modal-image max-w-full max-h-[90vh] rounded-3xl shadow-2xl object-contain">
+
+            </div>
+
+            <!-- ================= SCRIPT ================= -->
+
+            <script>
+
+                const modal = document.getElementById('imageModal');
+                const modalImage = document.getElementById('modalImage');
+                const closeModal = document.getElementById('closeModal');
+
+                // OPEN MODAL
+                document.querySelectorAll('.preview-image').forEach(image => {
+
+                    image.addEventListener('click', () => {
+
+                        modalImage.src = image.src;
+
+                        modal.classList.add('active');
+
+                        history.pushState({ modalOpen: true }, '');
+
+                        document.body.style.overflow = 'hidden';
+
+                    });
+
+                });
+
+                // CLOSE FUNCTION
+                function closePreview() {
+
+                    modal.classList.remove('active');
+
+                    document.body.style.overflow = 'auto';
+
+                }
+
+                // CLOSE BUTTON
+                closeModal.addEventListener('click', closePreview);
+
+                // CLICK OUTSIDE IMAGE
+                modal.addEventListener('click', (e) => {
+
+                    if (e.target === modal) {
+
+                        closePreview();
+
+                    }
+
+                });
+
+                // ESC KEY
+                document.addEventListener('keydown', (e) => {
+
+                    if (e.key === 'Escape') {
+
+                        closePreview();
+
+                    }
+
+                });
+
+                // MOBILE BACK BUTTON
+                window.addEventListener('popstate', () => {
+
+                    if (modal.classList.contains('active')) {
+
+                        closePreview();
+
+                    }
+
+                });
+
+            </script>
+
+        </div>
+
+    </section>
+
+    <!-- Quiz Redirect Section -->
+    <section id="quiz-cta" class="py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="glass rounded-[3rem] p-10 md:p-16 border border-slate-700 flex flex-col md:flex-row items-center justify-between gap-10"
+                data-aos="fade-up">
+
+                <!-- Text Content -->
+                <div class="text-center md:text-left">
+                    <h2
+                        class="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-white to-slate-500 bg-clip-text text-transparent">
+                        Ready for a Challenge?
+                    </h2>
+                    <p class="text-slate-400 text-lg max-w-md">
+                        Test your understanding of the lessons we've covered. Click the button to start the interactive
+                        quiz.
+                    </p>
+                </div>
+
+                <!-- Button Container -->
+                <div class="flex-shrink-0">
+                    <a href="quiz/quiz.html" class="relative group inline-block">
+                        <!-- Glowing Aura Effect -->
+                        <div
+                            class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200">
+                        </div>
+
+                        <!-- Main Button -->
+                        <div
+                            class="relative px-10 py-5 bg-slate-900 ring-1 ring-slate-700 group-hover:ring-cyan-500 rounded-2xl flex items-center gap-3 transition-all">
+                            <span class="text-white font-bold text-xl">Start Quiz</span>
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6 text-cyan-400 transform group-hover:translate-x-2 transition-transform"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section id="contact" class="py-28 px-6">
+
+        <div class="max-w-4xl mx-auto text-center">
+
+            <h2 class="text-5xl font-black mb-6">
+                Let's Connect
+            </h2>
+
+            <p class="text-slate-400 text-lg mb-10">
+
+                Thank you for visiting my portfolio.
+                I look forward to inspiring and guiding
+                future innovators and developers.
+
+            </p>
+
+            <div class="flex justify-center gap-6 text-3xl">
+
+                <a href="#" class="hover:text-cyan-400 transition">
+                    <i class="fab fa-facebook"></i>
+                </a>
+
+                <a href="#" class="hover:text-cyan-400 transition">
+                    <i class="fab fa-github"></i>
+                </a>
+
+                <a href="#" class="hover:text-cyan-400 transition">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="border-t border-slate-800 py-8 text-center text-slate-500">
+
+        © 2026 Ernest Julio C. De Jesus | Portfolio Website
+
+    </footer>
+
+    <!-- SCRIPTS -->
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+
+        AOS.init({
+            duration: 1200,
+            once: true
+        });
+
+        new Swiper(".swiper", {
+
+            loop: true,
+
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
