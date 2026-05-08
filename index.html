@@ -19,61 +19,142 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
+    html {
+        scroll-behavior: smooth;
+    }
 
-        body {
-            background: #020617;
-            color: white;
-            overflow-x: hidden;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+    body {
+        background: #020617;
+        color: white;
+        overflow-x: hidden;
+        font-family: Arial, Helvetica, sans-serif;
+    }
 
-        .glass {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(14px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
+    .glass {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
 
-        .gradient-text {
-            background: linear-gradient(to right, #22d3ee, #818cf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    .gradient-text {
+        background: linear-gradient(to right, #22d3ee, #818cf8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 
-        .glow {
-            box-shadow: 0 0 40px rgba(34, 211, 238, 0.35);
+    .glow {
+        box-shadow: 0 0 40px rgba(34, 211, 238, 0.35);
+    }
+
+    .project-card:hover {
+        transform: translateY(-10px);
+    }
+
+    .swiper {
+        width: 100%;
+        height: 500px;
+        border-radius: 30px;
+        overflow: hidden;
+    }
+
+    .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .bg-blur {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background: #22d3ee;
+        filter: blur(150px);
+        opacity: 0.12;
+        border-radius: 50%;
+        z-index: 0;
+    }
+
+    /* ================= RESPONSIVE FIXES ================= */
+
+    @media (max-width: 1024px) {
+        .swiper {
+            height: 400px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .swiper {
+            height: 320px;
+            border-radius: 20px;
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
+            transform: none;
         }
 
-        .swiper {
-            width: 100%;
-            height: 500px;
-            border-radius: 30px;
-            overflow: hidden;
+        h1 {
+            font-size: 2.5rem !important;
+            line-height: 1.2;
         }
 
-        .swiper-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        h2 {
+            font-size: 2rem !important;
         }
 
         .bg-blur {
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: #22d3ee;
-            filter: blur(150px);
-            opacity: 0.12;
-            border-radius: 50%;
-            z-index: 0;
+            width: 300px;
+            height: 300px;
         }
-    </style>
+    }
+
+    @media (max-width: 640px) {
+
+        body {
+            overflow-x: hidden;
+        }
+
+        section {
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+        }
+
+        .swiper {
+            height: 260px;
+        }
+
+        h1 {
+            font-size: 2rem !important;
+        }
+
+        h2 {
+            font-size: 1.6rem !important;
+        }
+
+        p {
+            font-size: 0.95rem;
+        }
+
+        .grid {
+            grid-template-columns: 1fr !important;
+        }
+
+        .flex {
+            flex-wrap: wrap;
+        }
+
+        .glass {
+            border-radius: 20px;
+        }
+
+        .text-5xl {
+            font-size: 2.2rem !important;
+        }
+
+        .text-7xl {
+            font-size: 2.6rem !important;
+        }
+    }
+</style>
 
 </head>
 
