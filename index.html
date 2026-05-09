@@ -18,6 +18,10 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
+    <!-- ================= RESPONSIVE GLOBAL FIX ================= -->
+    <!-- ADD THIS BELOW YOUR CURRENT STYLE TAG -->
+    <!-- DO NOT REMOVE ANY EXISTING CODE -->
+
     <style>
         html {
             scroll-behavior: smooth;
@@ -36,23 +40,9 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        .gradient-text {
-            background: linear-gradient(to right, #22d3ee, #818cf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .glow {
-            box-shadow: 0 0 40px rgba(34, 211, 238, 0.35);
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-        }
-
         .swiper {
             width: 100%;
-            height: 500px;
+            height: 600px;
             border-radius: 30px;
             overflow: hidden;
         }
@@ -60,21 +50,41 @@
         .swiper-slide img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
         }
 
-        .bg-blur {
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: #22d3ee;
-            filter: blur(150px);
-            opacity: 0.12;
-            border-radius: 50%;
-            z-index: 0;
+        /* =========================================
+       GLOBAL RESPONSIVE IMPROVEMENTS
+    ========================================= */
+
+        * {
+            box-sizing: border-box;
         }
 
-        /* ================= RESPONSIVE FIXES ================= */
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        section {
+            width: 100%;
+        }
+
+        .max-w-7xl,
+        .max-w-5xl,
+        .max-w-4xl {
+            width: 100%;
+        }
+
+        /* =========================================
+       NAVBAR RESPONSIVE
+    ========================================= */
 
         @media (max-width: 1024px) {
             .swiper {
@@ -88,71 +98,387 @@
                 border-radius: 20px;
             }
 
-            .project-card:hover {
-                transform: none;
+            nav .max-w-7xl {
+                padding-left: 18px;
+                padding-right: 18px;
             }
 
-            h1 {
-                font-size: 2.5rem !important;
-                line-height: 1.2;
+            nav h1 {
+                font-size: 1.1rem !important;
             }
 
-            h2 {
-                font-size: 2rem !important;
+            nav .hidden.md\:flex {
+                display: none !important;
             }
 
-            .bg-blur {
-                width: 300px;
-                height: 300px;
-            }
         }
 
-        @media (max-width: 640px) {
+        /* =========================================
+       HERO RESPONSIVE
+    ========================================= */
 
-            body {
-                overflow-x: hidden;
+        @media (max-width:1024px) {
+
+            #home {
+                padding-top: 120px;
+                min-height: auto;
             }
 
-            section {
-                padding-left: 16px !important;
-                padding-right: 16px !important;
+            #home .grid {
+                gap: 50px !important;
             }
 
-            .swiper {
-                height: 260px;
+            #home h1 {
+                font-size: 4rem !important;
             }
 
-            h1 {
-                font-size: 2rem !important;
+        }
+
+        @media (max-width:768px) {
+
+            #home {
+                padding-top: 110px;
+                text-align: center;
             }
 
-            h2 {
-                font-size: 1.6rem !important;
+            #home .flex {
+                justify-content: center;
             }
 
-            p {
-                font-size: 0.95rem;
+            #home h1 {
+                font-size: 2.7rem !important;
+                line-height: 1.15 !important;
             }
 
-            .grid {
+            #home p {
+                font-size: 0.95rem !important;
+            }
+
+            #home .swiper {
+                margin-top: 10px;
+            }
+
+        }
+
+        @media (max-width:480px) {
+
+            #home {
+                padding-left: 18px !important;
+                padding-right: 18px !important;
+            }
+
+            #home h1 {
+                font-size: 2.1rem !important;
+            }
+
+            #home .gradient-text {
+                word-break: break-word;
+            }
+
+            #home a {
+                width: 100%;
+            }
+
+        }
+
+        /* =========================================
+       ABOUT SECTION
+    ========================================= */
+
+        @media (max-width:768px) {
+
+            #about {
+                padding-top: 80px !important;
+                padding-bottom: 80px !important;
+            }
+
+            #about .grid {
+                gap: 25px !important;
+            }
+
+            #about .glass {
+                padding: 30px !important;
+            }
+
+            #about h2 {
+                font-size: 2.3rem !important;
+            }
+
+            #about h3 {
+                font-size: 1.7rem !important;
+            }
+
+            #about p {
+                font-size: 0.95rem !important;
+            }
+
+        }
+
+        @media (max-width:480px) {
+
+            #about .glass {
+                padding: 24px !important;
+                border-radius: 24px !important;
+            }
+
+            #about .swiper-button-next,
+            #about .swiper-button-prev {
+                transform: scale(.7);
+            }
+
+        }
+
+        /* =========================================
+       HOBBY SWIPER FIX
+    ========================================= */
+
+        @media (max-width:768px) {
+
+            .hobbySwiper {
+                height: 250px !important;
+            }
+
+        }
+
+        @media (max-width:480px) {
+
+            .hobbySwiper {
+                height: 220px !important;
+            }
+
+        }
+
+        /* =========================================
+       SKILLS SECTION
+    ========================================= */
+
+        @media (max-width:1024px) {
+
+            #skills .grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+
+        }
+
+        @media (max-width:640px) {
+
+            #skills .grid {
                 grid-template-columns: 1fr !important;
             }
 
-            .flex {
-                flex-wrap: wrap;
+            #skills .glass {
+                padding: 28px !important;
             }
 
-            .glass {
-                border-radius: 20px;
-            }
-
-            .text-5xl {
+            #skills h2 {
                 font-size: 2.2rem !important;
             }
 
-            .text-7xl {
-                font-size: 2.6rem !important;
+        }
+
+        /* =========================================
+       PROJECTS SECTION
+    ========================================= */
+
+        @media (max-width:1024px) {
+
+            #projects .grid {
+                grid-template-columns: repeat(2, 1fr) !important;
             }
+
+        }
+
+        @media (max-width:768px) {
+
+            #projects {
+                padding-top: 80px !important;
+                padding-bottom: 80px !important;
+            }
+
+            #projects .grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            #projects h2 {
+                font-size: 2.3rem !important;
+            }
+
+            #projects .glass {
+                border-radius: 28px !important;
+            }
+
+            #projects img {
+                height: 230px !important;
+            }
+
+        }
+
+        @media (max-width:480px) {
+
+            #projects img {
+                height: 200px !important;
+            }
+
+            #projects .p-8 {
+                padding: 24px !important;
+            }
+
+        }
+
+        /* =========================================
+       QUIZ CTA RESPONSIVE
+    ========================================= */
+
+        @media (max-width:768px) {
+
+            #quiz-cta .glass {
+                padding: 35px 25px !important;
+                border-radius: 30px !important;
+                text-align: center;
+            }
+
+            #quiz-cta h2 {
+                font-size: 2rem !important;
+                line-height: 1.2;
+            }
+
+            #quiz-cta p {
+                font-size: 0.95rem !important;
+                margin: auto;
+            }
+
+            #quiz-cta a {
+                width: 100%;
+            }
+
+            #quiz-cta .relative.px-10 {
+                justify-content: center;
+            }
+
+        }
+
+        @media (max-width:480px) {
+
+            #quiz-cta .relative.px-10 {
+                padding: 18px 24px !important;
+            }
+
+            #quiz-cta span {
+                font-size: 1rem !important;
+            }
+
+        }
+
+        /* =========================================
+       CONTACT SECTION
+    ========================================= */
+
+        @media (max-width:768px) {
+
+            #contact {
+                padding-top: 80px !important;
+                padding-bottom: 80px !important;
+            }
+
+            #contact h2 {
+                font-size: 2.3rem !important;
+            }
+
+            #contact p {
+                font-size: 0.95rem !important;
+            }
+
+            #contact .flex {
+                gap: 22px !important;
+            }
+
+        }
+
+        @media (max-width:480px) {
+
+            #contact .text-3xl {
+                font-size: 1.6rem !important;
+            }
+
+        }
+
+        /* =========================================
+       FOOTER
+    ========================================= */
+
+        @media (max-width:640px) {
+
+            footer {
+                padding-left: 20px;
+                padding-right: 20px;
+                font-size: 0.85rem;
+                line-height: 1.6;
+            }
+
+        }
+
+        /* =========================================
+       MODAL RESPONSIVE
+    ========================================= */
+
+        @media (max-width:768px) {
+
+            #modalImage {
+                max-width: 95%;
+                max-height: 80vh;
+                border-radius: 20px !important;
+            }
+
+            #closeModal {
+                top: 20px;
+                right: 20px;
+                font-size: 3rem !important;
+            }
+
+        }
+
+        /* =========================================
+       SWIPER RESPONSIVE
+    ========================================= */
+
+        @media (max-width:640px) {
+
+            .swiper {
+                height: 240px !important;
+            }
+
+        }
+
+        /* =========================================
+       EXTRA SMALL DEVICES
+    ========================================= */
+
+        @media (max-width:360px) {
+
+            h1 {
+                font-size: 1.8rem !important;
+            }
+
+            h2 {
+                font-size: 1.7rem !important;
+            }
+
+            .glass {
+                padding: 20px !important;
+            }
+
+            .swiper {
+                height: 210px !important;
+            }
+
+            .text-5xl {
+                font-size: 1.8rem !important;
+            }
+
+            .text-7xl {
+                font-size: 2rem !important;
+            }
+
         }
     </style>
 
