@@ -2,121 +2,374 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Portfolio | Ernest Julio C. De Jesus</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        body {
-            background-color: #0f172a;
-            color: white;
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
 
+        body {
+            background-color: #0f172a;
+            color: white;
+            overflow-x: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
         .glass {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(30, 41, 59, 0.72);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .fade-in {
+            animation: fade .5s ease;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .strike-dot {
+            transition: all .3s ease;
+        }
+
+        .strike-active {
+            background: #ef4444 !important;
+            transform: scale(1.2);
+            box-shadow: 0 0 12px rgba(239, 68, 68, .8);
+        }
+
+        .option-btn {
+            transition: all .25s ease;
+        }
+
+        .option-btn:hover {
+            transform: translateY(-3px);
+            border-color: #22d3ee;
+            background: rgba(34, 211, 238, .08);
+        }
+
+        .modal-show {
+            animation: pop .35s ease;
+        }
+
+        @keyframes pop {
+            from {
+                opacity: 0;
+                transform: scale(.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* =====================================
+           RESPONSIVE
+        ===================================== */
+
+        @media(max-width:768px) {
+
+            h1 {
+                font-size: 2.3rem !important;
+                line-height: 1.2;
+            }
+
+            h2 {
+                font-size: 1.8rem !important;
+            }
+
+            #question-text {
+                font-size: 1.25rem !important;
+            }
+
+            .glass {
+                border-radius: 28px !important;
+            }
+
+            #quiz {
+                padding-left: 18px !important;
+                padding-right: 18px !important;
+            }
+
+            #options-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            #feedback-gif {
+                max-width: 220px !important;
+            }
+
+        }
+
+        @media(max-width:480px) {
+
+            h1 {
+                font-size: 1.9rem !important;
+            }
+
+            h2 {
+                font-size: 1.5rem !important;
+            }
+
+            #question-text {
+                font-size: 1.05rem !important;
+                line-height: 1.6;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            .glass {
+                padding: 24px 18px !important;
+            }
+
         }
     </style>
+
 </head>
 
 <body class="font-sans antialiased">
 
-    <!-- START SCREEN -->
-    <section id="start-screen" class="fixed inset-0 flex items-center justify-center bg-slate-950 z-50 px-6">
-        <div class="glass rounded-[2.5rem] p-10 text-center max-w-xl w-full">
+    <!-- =====================================
+         START SCREEN
+    ===================================== -->
 
-            <h1 class="text-5xl font-black mb-4">Ready for the Quiz?</h1>
+    <section id="start-screen" class="fixed inset-0 flex items-center justify-center bg-slate-950 z-50 px-6">
+
+        <div class="glass rounded-[2.5rem] p-10 text-center max-w-xl w-full fade-in">
+
+            <h1 class="text-5xl font-black mb-4">
+                Ready for the Quiz?
+            </h1>
+
+            <p class="text-slate-400 mb-8 leading-relaxed">
+                Test your knowledge and answer all questions correctly.
+                You only have 3 strikes before losing.
+            </p>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
 
                 <button onclick="startQuiz()"
                     class="px-8 py-4 bg-cyan-400 text-slate-900 font-black rounded-2xl hover:scale-105 transition">
+
                     Yes, I'm Ready
+
                 </button>
 
                 <button onclick="window.location.href='../index.html'"
                     class="px-8 py-4 bg-red-500 text-white font-black rounded-2xl hover:scale-105 transition">
+
                     No, Go Back
+
                 </button>
 
             </div>
 
         </div>
+
     </section>
 
-    <!-- QUIZ -->
-    <section id="quiz" class="hidden py-20 px-6 bg-slate-900/30">
+    <!-- =====================================
+         QUIZ
+    ===================================== -->
+
+    <section id="quiz" class="hidden py-20 px-6 bg-slate-900/30 min-h-screen">
 
         <div class="max-w-3xl mx-auto">
 
-            <div class="glass rounded-[2.5rem] p-8 md:p-12 border border-slate-700">
+            <div class="glass rounded-[2.5rem] p-8 md:p-12 border border-slate-700 fade-in">
 
                 <!-- HEADER -->
-                <div class="flex justify-between items-center mb-10">
+                <div class="flex flex-col sm:flex-row justify-between gap-6 sm:items-center mb-10">
+
                     <div>
-                        <h2 class="text-3xl font-black">Professor's Quiz</h2>
-                        <p id="q-progress" class="text-cyan-400 font-mono text-sm"></p>
+
+                        <h2 class="text-3xl font-black">
+                            Professor's Quiz
+                        </h2>
+
+                        <p id="q-progress" class="text-cyan-400 font-mono text-sm mt-1">
+                        </p>
+
                     </div>
 
-                    <div class="text-right">
-                        <span class="text-slate-500 text-xs uppercase font-bold block mb-1">Strikes</span>
-                        <div id="strike-container" class="flex gap-2 justify-end">
-                            <div class="w-3 h-3 rounded-full bg-slate-700"></div>
-                            <div class="w-3 h-3 rounded-full bg-slate-700"></div>
-                            <div class="w-3 h-3 rounded-full bg-slate-700"></div>
+                    <!-- STRIKES -->
+                    <div class="text-left sm:text-right">
+
+                        <span class="text-slate-500 text-xs uppercase font-bold block mb-2">
+
+                            Strikes
+
+                        </span>
+
+                        <div class="flex items-center gap-3 sm:justify-end">
+
+                            <div id="strike-container" class="flex gap-2">
+
+                                <div class="strike-dot w-3 h-3 rounded-full bg-slate-700"></div>
+
+                                <div class="strike-dot w-3 h-3 rounded-full bg-slate-700"></div>
+
+                                <div class="strike-dot w-3 h-3 rounded-full bg-slate-700"></div>
+
+                            </div>
+
+                            <span id="strike-text" class="text-red-400 font-bold text-sm">
+
+                                0 / 3
+
+                            </span>
+
                         </div>
+
                     </div>
+
                 </div>
 
                 <!-- QUESTION -->
-                <h3 id="question-text" class="text-2xl font-bold mb-8 min-h-[60px]"></h3>
+                <h3 id="question-text" class="text-2xl font-bold mb-8 min-h-[70px] leading-relaxed">
+                </h3>
 
                 <!-- FEEDBACK -->
-                <div id="feedback-container" class="hidden text-center mb-6">
-                    <img id="feedback-gif" class="mx-auto max-h-48 rounded-xl border border-slate-700">
-                    <p id="feedback-text" class="mt-3 font-bold"></p>
+                <div id="feedback-container" class="hidden text-center mb-6 fade-in">
+
+                    <img id="feedback-gif" class="mx-auto max-h-52 rounded-2xl border border-slate-700 object-cover">
+
+                    <p id="feedback-text" class="mt-4 font-bold text-lg">
+                    </p>
+
                 </div>
 
                 <!-- OPTIONS -->
-                <div id="options-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                <div id="options-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                </div>
 
             </div>
 
             <!-- FINISH -->
-            <div id="finish-screen" class="hidden text-center py-10">
-                <h2 class="text-4xl font-black mb-4">Quiz Completed 🎉</h2>
+            <div id="finish-screen" class="hidden text-center py-10 fade-in">
 
-                <p class="text-slate-400">Playing final sequence...</p>
+                <h2 class="text-4xl font-black mb-4">
+                    Quiz Completed 🎉
+                </h2>
 
-                <button onclick="restartQuiz()" class="mt-6 px-8 py-3 bg-cyan-500 text-slate-900 font-bold rounded-xl">
-                    Restart Quiz
-                </button>
+                <p class="text-slate-400 mb-6">
+                    Playing final sequence...
+                </p>
 
-                <button onclick="result()" class="mt-6 px-8 py-3 bg-cyan-500 text-slate-900 font-bold rounded-xl">
-                    Show Result
-                </button>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+
+                    <button onclick="restartQuiz()"
+                        class="px-8 py-3 bg-cyan-500 text-slate-900 font-bold rounded-xl hover:scale-105 transition">
+
+                        Restart Quiz
+
+                    </button>
+
+                    <button onclick="result()"
+                        class="px-8 py-3 bg-green-500 text-slate-900 font-bold rounded-xl hover:scale-105 transition">
+
+                        Show Result
+
+                    </button>
+
+                </div>
 
             </div>
 
         </div>
+
     </section>
 
-    <!-- RESULT MODAL -->
-    <div id="result-modal" class="fixed inset-0 hidden items-center justify-center bg-black/70 z-50">
+    <!-- =====================================
+         RESULT MODAL
+    ===================================== -->
 
-        <div class="glass rounded-3xl p-10 max-w-md w-full text-center">
+    <div id="result-modal" class="fixed inset-0 hidden items-center justify-center bg-black/70 z-50 px-6">
 
-            <h2 class="text-3xl font-black mb-4">Your Result</h2>
+        <div class="glass rounded-3xl p-10 max-w-md w-full text-center modal-show">
 
-            <p id="result-text" class="text-slate-300 text-lg mb-6"></p>
+            <h2 class="text-3xl font-black mb-4">
+                Your Result
+            </h2>
 
-            <button onclick="finishQuiz()" class="px-8 py-3 bg-cyan-500 text-slate-900 font-bold rounded-xl">
+            <p id="result-text" class="text-slate-300 text-lg mb-6">
+            </p>
+
+            <button onclick="finishQuiz()"
+                class="px-8 py-3 bg-cyan-500 text-slate-900 font-bold rounded-xl hover:scale-105 transition">
+
                 Finish
+
             </button>
+
+        </div>
+
+    </div>
+
+    <!-- =====================================
+         LOSE MODAL
+    ===================================== -->
+
+    <div id="lose-modal" class="fixed inset-0 hidden items-center justify-center bg-black/70 z-50 px-6">
+
+        <div class="glass rounded-3xl p-10 max-w-md w-full text-center modal-show">
+
+            <h2 class="text-3xl font-black mb-4 text-red-400">
+                You Lost 💀
+            </h2>
+
+            <p class="text-slate-300 mb-8 leading-relaxed">
+
+                You already reached 3 strikes.
+                Do you want to continue the quiz or go back?
+
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+
+                <button onclick="continueQuiz()"
+                    class="flex-1 px-6 py-3 bg-cyan-400 text-slate-900 font-bold rounded-2xl hover:scale-105 transition">
+
+                    Continue
+
+                </button>
+
+                <button onclick="window.location.href='../index.html'"
+                    class="flex-1 px-6 py-3 bg-red-500 text-white font-bold rounded-2xl hover:scale-105 transition">
+
+                    Exit
+
+                </button>
+
+            </div>
 
         </div>
 
@@ -124,7 +377,10 @@
 
     <script>
 
-        /* AUDIO */
+        /* =====================================
+           AUDIO
+        ===================================== */
+
         const correctSound = new Audio('sounds/correct.mp3');
         const wrongSound = new Audio('sounds/wrong.mp3');
         const finishSound = new Audio('sounds/victory.mp3');
@@ -137,69 +393,127 @@
         outroBgm.loop = true;
         outroBgm.volume = 0.4;
 
-        /* DATA */
+        /* =====================================
+           QUIZ DATA
+        ===================================== */
+
         const quizData = [
+
             {
                 q: "For professional records, identify the Full Name of your instructor.",
-                options: ["Julio Ernest C. De Jesus", "Ernest Julio C. De Jesus", "Ernest De Jesus Jr.", "Julio C. Ernest De Jesus"],
+                options: [
+                    "Julio Ernest C. De Jesus",
+                    "Ernest Julio C. De Jesus",
+                    "Ernest De Jesus Jr.",
+                    "Julio C. Ernest De Jesus"
+                ],
                 correct: 1
             },
+
             {
                 q: "Which Pokémon character is my favorite due to its iconic design?",
-                options: ["Pikachu", "Charizard", "Snorlax", "Lucario"],
+                options: [
+                    "Pikachu",
+                    "Charizard",
+                    "Snorlax",
+                    "Lucario"
+                ],
                 correct: 2
             },
+
             {
                 q: "What is my current age according to my professional profile?",
-                options: ["23", "26", "25", "22"],
+                options: [
+                    "23",
+                    "26",
+                    "25",
+                    "22"
+                ],
                 correct: 0
             },
+
             {
                 q: "Which sport do I actively follow and consider my favorite?",
-                options: ["Volleyball", "Football", "Basketball", "Badminton"],
+                options: [
+                    "Volleyball",
+                    "Football",
+                    "Basketball",
+                    "Badminton"
+                ],
                 correct: 2
             },
+
             {
                 q: "Aside from development, which hobby do I spend my leisure time on?",
-                options: ["Reading Books", "Hiking", "Cooking", "Playing Online Games"],
+                options: [
+                    "Reading Books",
+                    "Hiking",
+                    "Cooking",
+                    "Playing Online Games"
+                ],
                 correct: 3
             }
+
         ];
 
-        /* STATE */
+        /* =====================================
+           STATE
+        ===================================== */
+
         let currentIdx = 0;
         let strikes = 0;
         let userAnswers = [];
 
-        /* START */
+        /* =====================================
+           START QUIZ
+        ===================================== */
+
         function startQuiz() {
+
             document.getElementById('start-screen').style.display = "none";
-            document.getElementById('quiz').classList.remove('hidden');
+
+            document.getElementById('quiz')
+                .classList.remove('hidden');
 
             bgm.play().catch(() => { });
+
+            updateStrikes();
 
             loadQuestion();
         }
 
-        /* LOAD */
+        /* =====================================
+           LOAD QUESTION
+        ===================================== */
+
         function loadQuestion() {
 
             if (currentIdx >= quizData.length) {
 
-                document.getElementById('options-grid').classList.add('hidden');
-                document.getElementById('feedback-container').classList.add('hidden');
-                document.getElementById('question-text').innerText = "";
+                document.getElementById('options-grid')
+                    .classList.add('hidden');
 
-                document.getElementById('finish-screen').classList.remove('hidden');
+                document.getElementById('feedback-container')
+                    .classList.add('hidden');
+
+                document.getElementById('question-text')
+                    .innerText = "";
+
+                document.getElementById('finish-screen')
+                    .classList.remove('hidden');
 
                 bgm.pause();
 
                 finishSound.currentTime = 0;
+
                 finishSound.play().catch(() => { });
 
                 finishSound.onended = () => {
+
                     outroBgm.currentTime = 0;
+
                     outroBgm.play().catch(() => { });
+
                 };
 
                 return;
@@ -213,35 +527,53 @@
             document.getElementById('question-text').innerText = q.q;
 
             const grid = document.getElementById('options-grid');
+
             grid.innerHTML = "";
+
             grid.classList.remove('hidden');
 
-            /* RESET FEEDBACK EVERY QUESTION */
-            document.getElementById('feedback-container').classList.add('hidden');
-            document.getElementById('feedback-gif').src = "";
-            document.getElementById('feedback-text').innerText = "";
+            document.getElementById('feedback-container')
+                .classList.add('hidden');
 
             q.options.forEach((opt, i) => {
+
                 const btn = document.createElement('button');
-                btn.className = "p-4 rounded-2xl bg-slate-800/40 border border-slate-700 hover:border-cyan-500 transition";
+
+                btn.className =
+                    "option-btn p-4 rounded-2xl bg-slate-800/40 border border-slate-700 font-semibold";
+
                 btn.innerText = opt;
+
                 btn.onclick = () => handleAnswer(i);
+
                 grid.appendChild(btn);
+
             });
+
         }
 
-        /* ANSWER */
+        /* =====================================
+           HANDLE ANSWER
+        ===================================== */
+
         function handleAnswer(choice) {
 
             userAnswers[currentIdx] = choice;
 
             const q = quizData[currentIdx];
 
-            const feedback = document.getElementById('feedback-container');
-            const gif = document.getElementById('feedback-gif');
-            const text = document.getElementById('feedback-text');
+            const feedback =
+                document.getElementById('feedback-container');
 
-            document.getElementById('options-grid').classList.add('hidden');
+            const gif =
+                document.getElementById('feedback-gif');
+
+            const text =
+                document.getElementById('feedback-text');
+
+            document.getElementById('options-grid')
+                .classList.add('hidden');
+
             feedback.classList.remove('hidden');
 
             if (choice === q.correct) {
@@ -249,40 +581,101 @@
                 correctSound.play().catch(() => { });
 
                 gif.src = "img/correct.gif";
+
                 text.innerText = "Correct!";
-                text.className = "mt-3 font-bold text-green-400";
+
+                text.className =
+                    "mt-4 font-bold text-green-400 text-lg";
 
                 setTimeout(() => {
+
                     currentIdx++;
+
                     loadQuestion();
+
                 }, 1200);
 
             } else {
 
                 wrongSound.play().catch(() => { });
+
                 strikes++;
 
+                updateStrikes();
+
                 gif.src = "img/squirt.gif";
-                text.innerText = "Wrong!";
-                text.className = "mt-3 font-bold text-red-500";
+
+                text.innerText = "Wrong Answer!";
+
+                text.className =
+                    "mt-4 font-bold text-red-400 text-lg";
 
                 setTimeout(() => {
+
                     if (strikes >= 3) {
-                        restartQuiz();
+
+                        document.getElementById('lose-modal')
+                            .classList.remove('hidden');
+
+                        document.getElementById('lose-modal')
+                            .classList.add('flex');
+
                     } else {
+
                         loadQuestion();
+
                     }
+
                 }, 1200);
+
             }
+
         }
 
-        /* RESULT */
+        /* =====================================
+           UPDATE STRIKES
+        ===================================== */
+
+        function updateStrikes() {
+
+            const dots =
+                document.querySelectorAll('.strike-dot');
+
+            dots.forEach((dot, index) => {
+
+                if (index < strikes) {
+
+                    dot.classList.add('strike-active');
+
+                } else {
+
+                    dot.classList.remove('strike-active');
+
+                }
+
+            });
+
+            document.getElementById('strike-text')
+                .innerText = `${strikes} / 3`;
+
+        }
+
+        /* =====================================
+           RESULT
+        ===================================== */
+
         function result() {
 
             let score = 0;
 
             quizData.forEach((q, i) => {
-                if (userAnswers[i] === q.correct) score++;
+
+                if (userAnswers[i] === q.correct) {
+
+                    score++;
+
+                }
+
             });
 
             let message =
@@ -292,33 +685,81 @@
                         ? `Good Job 👍 (${score}/${quizData.length})`
                         : `Try Again 📘 (${score}/${quizData.length})`;
 
-            document.getElementById("result-text").innerText = message;
+            document.getElementById('result-text')
+                .innerText = message;
 
-            document.getElementById("result-modal").classList.remove("hidden");
-            document.getElementById("result-modal").classList.add("flex");
+            document.getElementById('result-modal')
+                .classList.remove('hidden');
+
+            document.getElementById('result-modal')
+                .classList.add('flex');
+
         }
 
-        /* FINISH */
+        /* =====================================
+           CONTINUE QUIZ
+        ===================================== */
+
+        function continueQuiz() {
+
+            strikes = 0;
+
+            updateStrikes();
+
+            document.getElementById('lose-modal')
+                .classList.add('hidden');
+
+            document.getElementById('lose-modal')
+                .classList.remove('flex');
+
+            loadQuestion();
+
+        }
+
+        /* =====================================
+           FINISH QUIZ
+        ===================================== */
+
         function finishQuiz() {
+
             window.location.href = "../index.html";
+
         }
 
-        /* RESTART */
+        /* =====================================
+           RESTART QUIZ
+        ===================================== */
+
         function restartQuiz() {
 
             currentIdx = 0;
+
             strikes = 0;
+
             userAnswers = [];
 
             bgm.pause();
+
             outroBgm.pause();
 
+            updateStrikes();
+
+            document.getElementById('finish-screen')
+                .classList.add('hidden');
+
             loadQuestion();
+
         }
 
-        /* INIT */
+        /* =====================================
+           INIT
+        ===================================== */
+
         window.onload = () => {
-            document.getElementById('quiz').classList.add('hidden');
+
+            document.getElementById('quiz')
+                .classList.add('hidden');
+
         };
 
     </script>
